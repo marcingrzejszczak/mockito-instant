@@ -5,3 +5,5 @@ out
 target/
 project/
 build/
+.gradle/
+reports/

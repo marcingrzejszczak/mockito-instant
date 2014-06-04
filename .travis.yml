@@ -1,6 +1,4 @@
-before_install: ant init-ivy
-
-script: ./gradlew clean build && mvn clean install && ant -buildfile build_for_ant.xml && ant
+script: ./gradlew clean build && mvn clean install && ant -buildfile build_for_ant.xml
 
 jdk:
   - oraclejdk8

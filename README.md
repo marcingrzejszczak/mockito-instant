@@ -1,4 +1,4 @@
-Repository for the "Mockito Instant" book
+"Mockito Instant" book repository
 =====================================
 
 ## Where to get the book?
@@ -87,3 +87,6 @@ In comparison to the book the attached build files contain dependencies needed t
 # Any additional thoughts?
 
 Read my new book "Mockito Cookbook" :) The book will soon be out - until then take a look at the code - [Mockito Cookbook repository](https://github.com/marcingrzejszczak/mockito-cookbook)
+
+# Build status
+[![Build Status](https://travis-ci.org/marcingrzejszczak/mockito-instant.svg?branch=master)](https://travis-ci.org/marcingrzejszczak/mockito-instant)
