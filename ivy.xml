@@ -1,0 +1,16 @@
+<ivy-module version="1.0">
+    <info organisation="com.blogspot.toomuchcoding" module="mockito-starter" />
+    <configurations defaultconfmapping="compile->default">
+        <conf name="compile" description="Required to compile your application"/>
+        <conf name="runtime" description="In addition to compile time dependencies provides additional run-time dependencies" extends="compile"/>
+        <conf name="test"    description="Libraries required for test only" extends="runtime"/>
+    </configurations>
+
+    <dependencies>
+        <!-- test dependencies -->
+        <dependency org="junit" name="junit" rev="4.10" conf="test->default"/>
+        <dependency org="org.mockito" name="mockito-all" rev="1.9.5" conf="test->default"/>
+        <dependency org="com.googlecode.catch-exception" name="catch-exception" rev="1.2.0" conf="test->default"/>
+    </dependencies>
+
+</ivy-module>

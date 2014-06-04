@@ -1,0 +1,82 @@
+<project name="mockito-starter" default="test" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <!--
+    ================
+    Build properties
+    ================
+    -->
+    <property name="src.dir" location="src/main/java"/>
+    <property name="test.dir" location="src/test/java"/>
+    <property name="build.dir" location="build"/>
+    <property name="classes.dir" location="${build.dir}/classes"/>
+    <property name="test.classes.dir" location="${build.dir}/test-classes"/>
+    <property name="test.reports.dir" location="${build.dir}/test-reports"/>
+
+    <!--
+    ===========
+    Build setup
+    ===========
+    -->
+    <target name="init">
+        <ivy:resolve/>
+
+        <ivy:cachepath pathid="compile.path" conf="compile"/>
+        <ivy:cachepath pathid="runtime.path" conf="runtime"/>
+        <ivy:cachepath pathid="test.path"    conf="test"/>
+
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${test.classes.dir}"/>
+    </target>
+
+    <!--
+    ===============
+    Compile targets
+    ===============
+    -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" classpathref="compile.path"/>
+    </target>
+
+    <target name="compile-tests" depends="compile">
+        <javac srcdir="${test.dir}" destdir="${test.classes.dir}" includeantruntime="false">
+            <classpath>
+                <path refid="test.path"/>
+                <pathelement path="${classes.dir}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <!--
+    ============
+    Test targets
+    ============
+    -->
+    <target name="test" depends="compile-tests">
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="test.path"/>
+                <pathelement path="${classes.dir}"/>
+                <pathelement path="${test.classes.dir}"/>
+            </classpath>
+            <batchtest fork="yes" todir="${test.reports.dir}">
+                <fileset dir="${test.dir}">
+                    <include name="**/*Test*.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <!--
+    =============
+    Clean targets
+    =============
+    -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="clean-all" depends="clean">
+        <ivy:cleancache/>
+    </target>
+
+</project>

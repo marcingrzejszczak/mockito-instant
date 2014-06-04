@@ -1,0 +1,88 @@
+<project name="mockito-starter" default="test">
+
+    <!--
+    ================
+    Build properties
+    ================
+    -->
+    <property name="src.dir" location="src/main/java"/>
+    <property name="test.dir" location="src/test/java"/>
+    <property name="build.dir" location="build"/>
+    <property name="classes.dir" location="${build.dir}/classes"/>
+    <property name="test.classes.dir" location="${build.dir}/test-classes"/>
+    <property name="test.reports.dir" location="${build.dir}/test-reports"/>
+    <property name="lib.dir"           location="lib"/>
+
+
+    <!--
+    ===========
+    Build setup
+    ===========
+    -->
+    <path id="classpath">
+        <pathelement location="${build.dir}"/>
+    </path>
+
+    <path id="test.path">
+        <path refid="classpath"/>
+        <!-- MOCKITO AND JUNIT JARS HAVE TO BE IN THE LIB DIRECTORY-->
+        <fileset dir="lib" includes="**/*.jar"/>
+        <!--<pathelement location="lib"/>-->
+    </path>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${test.classes.dir}"/>
+    </target>
+
+    <!--
+    ===============
+    Compile targets
+    ===============
+    -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <!--
+    ============
+    Test targets
+    ============
+    -->
+
+    <target name="compile-tests" depends="compile">
+        <javac srcdir="${test.dir}" destdir="${test.classes.dir}" includeantruntime="false">
+            <classpath>
+                <path refid="test.path"/>
+                <pathelement path="${classes.dir}"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile-tests">
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="test.path"/>
+                <pathelement path="${classes.dir}"/>
+                <pathelement path="${test.classes.dir}"/>
+            </classpath>
+            <batchtest fork="yes" todir="${test.reports.dir}">
+                <fileset dir="${test.dir}">
+                    <include name="**/*Test*.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+
+    <!--
+    =============
+    Clean targets
+    =============
+    -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+</project>
