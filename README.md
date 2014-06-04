@@ -44,7 +44,7 @@ In comparison to the book the attached build files contain dependencies needed t
 ### Gradle (config in build.gradle):
 
 ```
-   gradle build
+   ./gradlew build
 ```
 
 ### Buildr (config in Buildr)
