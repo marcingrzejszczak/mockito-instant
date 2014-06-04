@@ -15,3 +15,7 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.9.5'
     testCompile 'com.googlecode.catch-exception:catch-exception:1.2.0'
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
