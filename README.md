@@ -86,7 +86,13 @@ In comparison to the book the attached build files contain dependencies needed t
 
 # Any additional thoughts?
 
-Read my new book "Mockito Cookbook" :) The book will soon be out - until then take a look at the code - [Mockito Cookbook repository](https://github.com/marcingrzejszczak/mockito-cookbook)
+Read my new book "Mockito Cookbook" :) The book is out and you can buy it here [Mockito Cookbook at Packt Publishing](https://www.packtpub.com/mockito-cookbook/book). You can also take a look at the code - [Mockito Cookbook repository](https://github.com/marcingrzejszczak/mockito-cookbook)
+
+# Contact
+In case of any issues, doubts or if you need help with understanding sth just contact me either via email - marcin(at)grzejszczak.pl or via my blog at [http://toomuchcoding.blogspot.com](http://toomuchcoding.blogspot.com), or my homepage [http://www.marcin.grzejszczak.pl](http://www.marcin.grzejszczak.pl), or Twitter - [@MGrzejszczak](http://twitter.com/MGrzejszczak).
+
+## Mockito Instant Google Group
+There is also the [Mockito Instant Google Group](https://groups.google.com/forum/#!forum/mockito-instant) where you can share your thoughts on whatever is related to the book or any topic related to Mockito.
 
 # Build status
 [![Build Status](https://travis-ci.org/marcingrzejszczak/mockito-instant.svg?branch=master)](https://travis-ci.org/marcingrzejszczak/mockito-instant)
