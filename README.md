@@ -96,3 +96,7 @@ There is also the [Mockito Instant Google Group](https://groups.google.com/forum
 
 # Build status
 [![Build Status](https://travis-ci.org/marcingrzejszczak/mockito-instant.svg?branch=master)](https://travis-ci.org/marcingrzejszczak/mockito-instant)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/marcingrzejszczak/mockito-instant/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
